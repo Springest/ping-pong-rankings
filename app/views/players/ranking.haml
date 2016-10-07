@@ -1,7 +1,6 @@
 - players = Player.order('rating desc, name asc').select { |player| should_show? player }
 // Rankings
 #rankings.content.nav-view
-  = render 'shared/menu'
 
   // Ranking view
   #ranking-view.content.tab-view

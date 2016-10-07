@@ -3,15 +3,19 @@
     %a.brand{ href: "/" } PingPongPanda
     .nav-container
       %ul.nav
-        %li.nav-item#nav-rankings
-          = link_to 'Rankings', ranking_players_path, { 'data-content' => 'rankings' }
         %li#nav-newgame
-          = link_to 'Record Game', '#', { 'data-content' => 'new-game' }
+          = link_to icon('plus-circle'), '#', { 'data-content' => 'new-game' }
+        %li
+          = link_to icon('list'), ranking_players_path
+        %li
+          = link_to icon('line-chart'), rating_history_players_path
+        %li
+          = link_to icon('bolt'), point_potential_players_path
         %li#nav-fullscreen
-          = link_to 'Fullscreen', '#'
+          = link_to icon('arrows-alt'), '#'
         - if current_player
           %li.nav-item#nav-logout
-            = link_to 'Log out', sessions_path, method: :delete
+            = link_to icon('sign-out'), sessions_path, method: :delete
         - else
           %li.nav-item#nav-login
             = link_to 'Authenticate with Google', '/auth/google_oauth2'

@@ -10,9 +10,9 @@ PingPong.initRankings = function() {
             return;
         }
 
-        e.preventDefault();
         var elmParent = $(this).parent();
         if(elmParent.hasClass('nav-item')){
+            e.preventDefault();
             $('.nav a').removeClass('active');
             $(this).addClass('active');
             $('.nav-view').addClass('hide');
