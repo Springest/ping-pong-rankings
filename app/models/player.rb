@@ -7,6 +7,10 @@ class Player < ActiveRecord::Base
 
   before_create :validate_player
 
+  def self.for_domain(domain)
+    where(domain: domain)
+  end
+
   def short_name
     split = name.split(" ")
     return name unless split[1]

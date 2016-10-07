@@ -4,6 +4,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @players = Player.for_domain(current_domain).order('name ASC')
   end
 
   def create
@@ -60,7 +61,7 @@ class GamesController < ApplicationController
   end
 
   def recalculate
-    Game.recalculate_all
+    Game.recalculate_all(current_domain)
     redirect_to ranking_players_path
   end
 

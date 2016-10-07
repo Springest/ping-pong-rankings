@@ -1,11 +1,11 @@
 - @game ||= Game.new
 = form_for @game, :html => {:class => 'default-form'} do |games|
-  - player_options = [['-', nil]] + Player.order('name ASC').map do |player|
+  - player_options = [['-', nil]] + @players.map do |player|
     - [player.name, player.id]
 
   .overlay
     %ul.player-list{ :data => { 'team' => 1 } }
-      - Player.order('name ASC').each do |player|
+      - @players.order('name ASC').each do |player|
         %li= render player
 
     .selected
@@ -35,7 +35,7 @@
         %input.btn{:type => 'submit', :value => 'Submit score(s)'}
 
     %ul.player-list{ :data => { 'team' => 2 } }
-      - Player.order('name ASC').each do |player|
+      - @players.each do |player|
         %li= render player
 
   .hide

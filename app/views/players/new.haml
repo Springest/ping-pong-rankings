@@ -5,7 +5,7 @@
 .content.medium
   %h1 Recently added players
   %ul
-    - Player.order('created_at desc').limit(8).each do |player|
+    - @players.order('created_at desc').limit(8).each do |player|
       %li
         = link_to player.name, player
         - if player.created_at > 1.minute.ago

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605183041) do
+ActiveRecord::Schema.define(version: 20161007135954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140605183041) do
     t.datetime "updated_at"
     t.string   "google_uid"
     t.string   "google_image_url"
+    t.string   "domain"
   end
 
   add_index "players", ["created_at"], name: "index_players_on_created_at", using: :btree

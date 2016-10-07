@@ -44,6 +44,10 @@ class Game < ActiveRecord::Base
     order('created_at DESC')
   end
 
+  def self.for_domain(domain)
+    joins(:players).where("players.domain = ?", domain)
+  end
+
   def winning_team
     teams.where(winners: true).first
   end
@@ -95,11 +99,11 @@ class Game < ActiveRecord::Base
     end
   end
 
-  def self.recalculate_all
-    players = Player.all
+  def self.recalculate_all(domain)
+    players = Player.where(domain: domain)
     players.each(&:reset_rating)
     players.each(&:save)
 
-    self.order('created_at asc').each(&:calculate_player_rankings)
+    self.joins(:players).where("players.domain = ?", domain).order('created_at asc').each(&:calculate_player_rankings)
   end
 end

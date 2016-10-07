@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   def show
-    @player = Player.includes([:games, :teams, :rating_histories]).find(params[:id])
+    @player = Player.for_domain(current_domain).includes([:games, :teams, :rating_histories]).find(params[:id])
   end
 
   def edit
@@ -16,12 +16,21 @@ class PlayersController < ApplicationController
     end
   end
 
+  def rating_history
+    @players = Player.for_domain(current_domain)
+  end
+
+  def point_potential
+    @players = Player.for_domain(current_domain)
+  end
+
   def destroy
     Player.delete(params['id'])
     redirect_to new_player_path
   end
 
   def ranking
+    @players = Player.for_domain(current_domain)
   end
 
   private

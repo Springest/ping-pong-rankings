@@ -1,4 +1,4 @@
-- players = Player.order('rating desc, name asc').select { |player| should_show? player }
+- players = @players.order('rating desc, name asc').select { |player| should_show? player }
 .content.nav-view
 
   #history-graph.content.tab-view
