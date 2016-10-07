@@ -1,15 +1,16 @@
 class SessionsController < ApplicationController
   def create
+    domain = auth_hash['extra']['raw_info']['hd'] || "gmail.com"
     if player = Player.where(google_uid: auth_hash['uid']).first
       player.update_attributes(google_image_url: auth_hash['info']['image'],
-                               domain: auth_hash['extra']['raw_info']['hd'])
+                               domain: domain)
       session[:player_id] = player.id
     else
       player = Player.create(
         name:       auth_hash['info']['name'],
         google_uid: auth_hash['uid'],
         google_image_url: auth_hash['info']['image'],
-        domain: auth_hash['extra']['raw_info']['hd'],
+        domain: domain,
         rating: EloRanking::DEFAULT_PLAYER_RATING
       )
       session[:player_id] = player.id
