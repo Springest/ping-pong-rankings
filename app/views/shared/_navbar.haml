@@ -4,18 +4,18 @@
     .nav-container
       %ul.nav
         %li#nav-newgame
-          = link_to icon('plus-circle'), '#', { 'data-content' => 'new-game' }
+          = link_to icon('plus-circle'), '#', { 'data-content' => 'new-game', title: "Add score" }
         %li
-          = link_to icon('list'), ranking_players_path
+          = link_to icon('list'), ranking_players_path, title: "Rankings"
         %li
-          = link_to icon('line-chart'), rating_history_players_path
+          = link_to icon('line-chart'), rating_history_players_path, title: "Ratings history"
         %li
-          = link_to icon('bolt'), point_potential_players_path
+          = link_to icon('bolt'), point_potential_players_path, title: "Potential points"
         %li#nav-fullscreen
-          = link_to icon('arrows-alt'), '#'
+          = link_to icon('arrows-alt'), '#', title: "Fullscreen"
         - if current_player
           %li.nav-item#nav-logout
-            = link_to icon('sign-out'), sessions_path, method: :delete
+            = link_to icon('sign-out'), sessions_path, method: :delete, title: "Sign out"
         - else
           %li.nav-item#nav-login
-            = link_to 'Authenticate with Google', '/auth/google_oauth2'
+            = link_to 'Authenticate with Google', '/auth/google_oauth2', title: "Sign in with Google"
