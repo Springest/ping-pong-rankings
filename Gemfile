@@ -7,6 +7,7 @@ gem 'thin'
 
 gem 'haml'
 gem 'haml-rails'
+gem 'font-awesome-sass'
 
 gem 'dalli' # Caching with memcached
 
@@ -22,7 +23,6 @@ gem 'pg'
 # in production environments by default.
 group :assets do
   gem 'sass-rails'
-  gem 'font-awesome-sass'
   gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
