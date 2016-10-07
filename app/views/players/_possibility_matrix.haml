@@ -11,12 +11,12 @@
         Player
       -players.each do |player|
         %th.player
-          %span{:title => player.name}= player.name
+          %span{:title => player.name}= player.short_name
   %tbody
     -players.each do |player|
       %tr
         %th.player
-          %span{:title => player.name}= player.name
+          %span{:title => player.name}= player.short_name
         -players.each do |opponent|
           -if player == opponent
             %td.empty/
