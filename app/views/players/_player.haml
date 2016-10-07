@@ -1,7 +1,7 @@
 - cache player do
   .player{ :data => { 'player-id' => player.id } }
     %span.img{ :style => "background-image:url(#{player.profile_image_url(:bigger => true)})" }
-    = link_to player.name, player, {:title => player.name}
+    = link_to player.short_name, player, {:title => player.name}
   .history.spark_line
     %span.spark_line{ :id => "rating_spark_#{player.id}", :style => "width: #{[100,10 * player.games.count].min}%" }
     = spark_line "rating_spark_#{player.id}", player.rating_histories.includes(:game).limit(100).map(&:rating)

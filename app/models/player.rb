@@ -7,6 +7,11 @@ class Player < ActiveRecord::Base
 
   before_create :validate_player
 
+  def short_name
+    split = name.split(" ")
+    [split[0], split[1][0]].join(" ")
+  end
+
   def validate_player
     Player.where(:name => name).exists? ? false : true
   end
