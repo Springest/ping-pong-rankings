@@ -4,8 +4,8 @@
     - teams = game.teams
     .team.team-left
       - team = game.teams[0]
-      %span.player= team.players[0].name
-      %span.player= team.players[1].name if team.players[1]
+      %span.player= team.players[0].short_name
+      %span.player= team.players[1].short_name if team.players[1]
       = results_badge(team)
       .meta-info
         /%span.score-gained +32
@@ -16,8 +16,8 @@
     .team.team-right
       - team = game.teams[1]
       = results_badge(team)
-      %span.player= team.players[0].name
-      %span.player= team.players[1].name if team.players[1]
+      %span.player= team.players[0].short_name
+      %span.player= team.players[1].short_name if team.players[1]
       .meta-info
         /%span.score-gained +32
         %span.score= team.players.first.rating if team.players.count == 1
