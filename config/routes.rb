@@ -1,5 +1,8 @@
 Rankings::Application.routes.draw do
-  root :to => 'application#index'
+  get "/404", :to => "pages#not_found"
+  get "/500", :to => "pages#error"
+
+  root :to => 'pages#index'
 
   get '/auth/google_oauth2/callback', to: 'sessions#create'
 
