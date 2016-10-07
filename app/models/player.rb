@@ -9,6 +9,7 @@ class Player < ActiveRecord::Base
 
   def short_name
     split = name.split(" ")
+    return name unless split[1]
     [split[0], split[1][0]].join(" ")
   end
 
