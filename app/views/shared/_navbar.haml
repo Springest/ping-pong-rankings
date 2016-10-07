@@ -18,4 +18,4 @@
             = link_to icon('sign-out'), sessions_path, method: :delete, title: "Sign out"
         - else
           %li.nav-item#nav-login
-            = link_to 'Authenticate with Google', '/auth/google_oauth2', title: "Sign in with Google"
+            = link_to icon('sign-in'), '/auth/google_oauth2', title: "Sign in with Google"
