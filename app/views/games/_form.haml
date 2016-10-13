@@ -4,7 +4,7 @@
     - [player.name, player.id]
 
   .overlay
-    %ul.player-list{ :data => { 'team' => 1 } }
+    %ul.player-list.team-1{ :data => { 'team' => 1 } }
       - @players.order('name ASC').each do |player|
         %li= render player
 
@@ -32,9 +32,9 @@
 
       .buttons
         %input.btn.add-game{:type => 'add-game', :value => '+ Add game'}
-        %input.btn{:type => 'submit', :value => 'Submit score(s)'}
+        %input.btn.submit-score{:type => 'submit', :value => 'Submit score(s)'}
 
-    %ul.player-list{ :data => { 'team' => 2 } }
+    %ul.player-list.team-2{ :data => { 'team' => 2 } }
       - @players.each do |player|
         %li= render player
 
@@ -98,12 +98,17 @@
     })
   })
 
-  $('.player-list [data-player-id="#{current_player.id}"]').click()
-
   // Set Default Score
   $('.default-score a').click(function(e){
     e.preventDefault();
     $(this).closest('.team').find('input').val($(this).text())
+  })
+
+  $('.player-list.team-1 [data-player-id="#{current_player.id}"]').click()
+
+  //
+  $('input:submit').click(function(){
+    $('input:submit').attr("disabled", true)
   })
 
 
