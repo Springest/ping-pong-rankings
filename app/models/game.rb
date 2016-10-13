@@ -45,7 +45,7 @@ class Game < ActiveRecord::Base
   end
 
   def self.for_domain(domain)
-    joins(:players).where("players.domain = ?", domain)
+    joins(:players).where("players.domain = ?", domain).distinct("games.id")
   end
 
   def winning_team

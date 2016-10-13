@@ -1,5 +1,5 @@
 - @game ||= Game.new
-= form_for @game, :html => {:class => 'default-form'} do |games|
+= form_for @game, :html => {:class => 'default-form game-form'} do |games|
   - player_options = [['-', nil]] + @players.map do |player|
     - [player.name, player.id]
 
@@ -109,6 +109,7 @@
   //
   $('input:submit').click(function(){
     $('input:submit').attr("disabled", true)
+    $('.game-form').submit()
   })
 
 
