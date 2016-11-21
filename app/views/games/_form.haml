@@ -104,7 +104,7 @@
     $(this).closest('.team').find('input').val($(this).text())
   })
 
-  $('.player-list.team-1 [data-player-id="#{current_player.id}"]').click()
+  $('.player-list.team-1 [data-player-id="#{current_player.try(:id)}"]').click()
 
   //
   $('input:submit').click(function(){
