@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   def current_domain
     @current_domain ||= begin
                           current_player.domain if current_player
+                          "springest.com"
                         end
   end
   helper_method :current_domain
