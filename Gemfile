@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby "2.3.1"
+ruby "2.4.5"
 
-gem 'rails', '~> 4.1.0'
+gem "rails", "~> 5.2"
 
 gem 'thin'
 
@@ -14,7 +14,7 @@ gem 'dalli' # Caching with memcached
 gem 'omniauth-google-oauth2'
 
 group :test, :development do
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails'
 end
 
 gem 'pg'
@@ -38,8 +38,8 @@ end
 
 gem 'jquery-rails'
 
-gem 'bourbon'       # Bourbon - lightweight mixin library
-gem 'neat'          # Neat - grid framework
+gem 'bourbon', '~> 4.2.7'       # Bourbon - lightweight mixin library
+gem 'neat', '~> 1.8.0'          # Neat - grid framework
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
