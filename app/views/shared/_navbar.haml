@@ -8,14 +8,14 @@
         %li
           = link_to icon('fas', 'list'), ranking_players_path, title: "Rankings"
         %li
-          = link_to icon('fas', 'line-chart'), rating_history_players_path, title: "Ratings history"
+          = link_to icon('fas', 'chart-line'), rating_history_players_path, title: "Ratings history"
         %li
           = link_to icon('fas', 'bolt'), point_potential_players_path, title: "Potential points"
         %li#nav-fullscreen
           = link_to icon('fas', 'arrows-alt'), '#', title: "Fullscreen"
         - if current_player
           %li.nav-item#nav-logout
-            = link_to icon('fas', 'sign-out'), sessions_path, method: :delete, title: "Sign out"
+            = link_to icon('fas', 'sign-out-alt'), sessions_path, method: :delete, title: "Sign out"
         - else
           %li.nav-item#nav-login
-            = link_to icon('fas', 'sign-in'), '/auth/google_oauth2', title: "Sign in with Google"
+            = link_to icon('fas', 'sign-in-alt'), '/auth/google_oauth2', title: "Sign in with Google"
